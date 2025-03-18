@@ -12,94 +12,93 @@ const gallery = document.querySelector('#appGallery');
 const galleryList = document.querySelector('#gallery-list');
 
 const galleryItem = photoInfo => {
-    const item = document.createElement('li');
-    item.classList.add('gallery-item');
-    item.dataset.source = photoInfo.largeImageURL;
+  const item = document.createElement('li');
+  item.classList.add('gallery-item');
+  item.dataset.source = photoInfo.largeImageURL;
 
-    const itemLink = document.createElement('a');
-    itemLink.classList.add('gallery-link');
-    itemLink.style.color = 'black';
+  const itemLink = document.createElement('a');
+  itemLink.classList.add('gallery-link');
+  itemLink.style.color = 'black';
 
-    const img = document.createElement('img');
-    img.src = photoInfo.webformatURL;
-    img.alt = photoInfo.tags;
-    img.width = 360;
-    img.height = 200;
+  const img = document.createElement('img');
+  img.src = photoInfo.webformatURL;
+  img.alt = photoInfo.tags;
+  img.width = 360;
+  img.height = 200;
 
-    const contentDiv = document.createElement('div');
-    contentDiv.classList.add('content');
+  const contentDiv = document.createElement('div');
+  contentDiv.classList.add('content');
 
-    // Beğeniler
-    const iLikeDiv = document.createElement('div');
-    iLikeDiv.classList.add('info');
+  // Beğeniler
+  const iLikeDiv = document.createElement('div');
+  iLikeDiv.classList.add('info');
 
-    const iLikeKey = document.createElement('h5');
-    iLikeKey.classList.add('key');
-    iLikeKey.textContent = 'Likes:';
-    iLikeDiv.appendChild(iLikeKey);
+  const iLikeKey = document.createElement('h5');
+  iLikeKey.classList.add('key');
+  iLikeKey.textContent = 'Likes:';
+  iLikeDiv.appendChild(iLikeKey);
 
-    const iLikeValue = document.createElement('p');
-    iLikeValue.classList.add('value');
-    iLikeValue.textContent = photoInfo.likes;
-    iLikeDiv.appendChild(iLikeValue);
+  const iLikeValue = document.createElement('p');
+  iLikeValue.classList.add('value');
+  iLikeValue.textContent = photoInfo.likes;
+  iLikeDiv.appendChild(iLikeValue);
 
-    // Görüntülemeler
-    const iViewsDiv = document.createElement('div');
-    iViewsDiv.classList.add('info');
+  // Görüntülemeler
+  const iViewsDiv = document.createElement('div');
+  iViewsDiv.classList.add('info');
 
-    const iViewsKey = document.createElement('h5');
-    iViewsKey.classList.add('key');
-    iViewsKey.textContent = 'Views:';
-    iViewsDiv.appendChild(iViewsKey);
+  const iViewsKey = document.createElement('h5');
+  iViewsKey.classList.add('key');
+  iViewsKey.textContent = 'Views:';
+  iViewsDiv.appendChild(iViewsKey);
 
-    const iViewsValue = document.createElement('p');
-    iViewsValue.classList.add('value');
-    iViewsValue.textContent = photoInfo.views;
-    iViewsDiv.appendChild(iViewsValue);
+  const iViewsValue = document.createElement('p');
+  iViewsValue.classList.add('value');
+  iViewsValue.textContent = photoInfo.views;
+  iViewsDiv.appendChild(iViewsValue);
 
-    // Yorumlar
-    const iCommentsDiv = document.createElement('div');
-    iCommentsDiv.classList.add('info');
+  // Yorumlar
+  const iCommentsDiv = document.createElement('div');
+  iCommentsDiv.classList.add('info');
 
-    const iCommentsKey = document.createElement('h5');
-    iCommentsKey.classList.add('key');
-    iCommentsKey.textContent = 'Comments:';
-    iCommentsDiv.appendChild(iCommentsKey);
+  const iCommentsKey = document.createElement('h5');
+  iCommentsKey.classList.add('key');
+  iCommentsKey.textContent = 'Comments:';
+  iCommentsDiv.appendChild(iCommentsKey);
 
-    const iCommentsValue = document.createElement('p');
-    iCommentsValue.classList.add('value');
-    iCommentsValue.textContent = photoInfo.comments;
-    iCommentsDiv.appendChild(iCommentsValue);
+  const iCommentsValue = document.createElement('p');
+  iCommentsValue.classList.add('value');
+  iCommentsValue.textContent = photoInfo.comments;
+  iCommentsDiv.appendChild(iCommentsValue);
 
-    // İndirmeler
-    const iDownloadsDiv = document.createElement('div');
-    iDownloadsDiv.classList.add('info');
+  // İndirmeler
+  const iDownloadsDiv = document.createElement('div');
+  iDownloadsDiv.classList.add('info');
 
-    const iDownloadsKey = document.createElement('h5');
-    iDownloadsKey.classList.add('key');
-    iDownloadsKey.textContent = 'Downloads:';
-    iDownloadsDiv.appendChild(iDownloadsKey);
+  const iDownloadsKey = document.createElement('h5');
+  iDownloadsKey.classList.add('key');
+  iDownloadsKey.textContent = 'Downloads:';
+  iDownloadsDiv.appendChild(iDownloadsKey);
 
-    const iDownloadsValue = document.createElement('p');
-    iDownloadsValue.classList.add('value');
-    iDownloadsValue.textContent = photoInfo.downloads;
-    iDownloadsDiv.appendChild(iDownloadsValue);
+  const iDownloadsValue = document.createElement('p');
+  iDownloadsValue.classList.add('value');
+  iDownloadsValue.textContent = photoInfo.downloads;
+  iDownloadsDiv.appendChild(iDownloadsValue);
 
-    contentDiv.appendChild(iLikeDiv);
-    contentDiv.appendChild(iViewsDiv);
-    contentDiv.appendChild(iCommentsDiv);
-    contentDiv.appendChild(iDownloadsDiv);
+  contentDiv.appendChild(iLikeDiv);
+  contentDiv.appendChild(iViewsDiv);
+  contentDiv.appendChild(iCommentsDiv);
+  contentDiv.appendChild(iDownloadsDiv);
 
-    itemLink.appendChild(img);
-    item.appendChild(contentDiv);
-    item.appendChild(itemLink);
-    galleryList.appendChild(item);
+  itemLink.appendChild(img);
+  item.appendChild(contentDiv);
+  item.appendChild(itemLink);
+  galleryList.appendChild(item);
+};
 
-}
-
-let galleryBox = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionDelay: 250,
+let galleryBox = new SimpleLightbox('.gallery li > a', {
+  captionsData: 'alt',
+  captionDelay: 250,
 });
 
 form.addEventListener('submit', async e => {
@@ -158,7 +157,7 @@ form.addEventListener('submit', async e => {
           message: error.message,
         });
         galleryList.innerHTML = '';
-        console.error("Pixabay error: ", error);
+        console.error('Pixabay error: ', error);
       });
     e.target.reset();
   }
