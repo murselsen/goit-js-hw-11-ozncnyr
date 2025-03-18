@@ -8,7 +8,7 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const form = document.querySelector('.gallery-form');
-const gallery = document.querySelector('#appGallery');
+const gallery = adocument.querySelector('#appGallery');
 const galleryList = document.querySelector('#gallery-list');
 
 const galleryItem = photoInfo => {
@@ -96,7 +96,7 @@ const galleryItem = photoInfo => {
   galleryList.appendChild(item);
 };
 
-let galleryBox = new SimpleLightbox('.gallery li > a', {
+let galleryBox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });

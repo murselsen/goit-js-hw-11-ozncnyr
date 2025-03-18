@@ -14,8 +14,7 @@
 }
 
 body {
-  user-select: none;
-  background-image: url("../img/redblack-bg.jpg");
+  background-image: url('../img/redblack-bg.jpg');
 }
 
 .gallery-container {
